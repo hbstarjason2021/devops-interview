@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+cd $(dirname $0)/..
+source ./auto/set-env-helpers
+
+kustomize edit set image zionlab/app=${REPO_NAMESPACE}/interview-app:${GIT_HASH} zionlab/migration=${REPO_NAMESPACE}/migration-app:${GIT_HASH}
+
+kustomize build . -o kustomize-output.yaml
