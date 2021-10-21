@@ -10,6 +10,8 @@ services:
       - ./config/env/local
     # volumes:
     #   - "./app/src:/app/src"
+    networks:
+      - backend
     depends_on:
       - db
       - migration
