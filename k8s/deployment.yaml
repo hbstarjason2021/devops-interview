@@ -23,8 +23,8 @@ spec:
       restartPolicy: Always
       initContainers:
       - name: devops-joi-migration
-        image: 'zionlab/migration'
-        imagePullPolicy: Always
+        image: 'devopsinterview_migration'
+        imagePullPolicy: IfNotPresent
         env:
           - name: DB_HOST
             valueFrom:
@@ -48,8 +48,8 @@ spec:
                 name: db-info
       containers:
       - name: devops-joi-app
-        image: 'zionlab/app'
-        imagePullPolicy: Always
+        image: 'devopsinterview_app'
+        imagePullPolicy: IfNotPresent
         ports:
           - containerPort: 80
             protocol: TCP
@@ -107,7 +107,7 @@ spec:
       containers:
         - name: devops-joi-db
           image: 'mysql:8'
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3306
               protocol: TCP
