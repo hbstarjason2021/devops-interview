@@ -78,6 +78,9 @@ spec:
           initialDelaySeconds: 30
           periodSeconds: 10
           httpGet:
+            httpHeaders:
+              - name: Host
+                value: devops.joi.toc-platform.com
             path: /diagnostic/liveness
             port: 80
             scheme: HTTP
@@ -86,6 +89,9 @@ spec:
           periodSeconds: 10
           failureThreshold: 3
           httpGet:
+            httpHeaders:
+              - name: Host
+                value: devops.joi.toc-platform.com
             path: /diagnostic/readiness
             port: 80
             scheme: HTTP
