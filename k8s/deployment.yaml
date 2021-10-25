@@ -75,11 +75,15 @@ spec:
                 key: DB_PASSWORD
                 name: db-info
         livenessProbe:
+          initialDelaySeconds: 30
+          periodSeconds: 10
           httpGet:
             path: /diagnostic/liveness
             port: 80
             scheme: HTTP
         readinessProbe:
+          initialDelaySeconds: 15
+          periodSeconds: 10
           failureThreshold: 3
           httpGet:
             path: /diagnostic/readiness
